@@ -77,3 +77,17 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+  # Views Work
+  <img width="245" alt="image" src="https://github.com/lccarelli/xeneize-fe/assets/14808126/2ce86fe0-427b-4a85-a703-dc79313fc7e6">
+  <img width="242" alt="image" src="https://github.com/lccarelli/xeneize-fe/assets/14808126/b38499ac-9e8c-4549-b667-56048b843c55">
+  <img width="239" alt="image" src="https://github.com/lccarelli/xeneize-fe/assets/14808126/9a796733-ff10-43ae-ab29-a23fcb5a4939">
+  <img width="243" alt="image" src="https://github.com/lccarelli/xeneize-fe/assets/14808126/ad6247ba-cc45-46d4-908e-596990f1f4b1">
+  <img width="241" alt="image" src="https://github.com/lccarelli/xeneize-fe/assets/14808126/791e397f-0106-4698-b68f-3bfd79dfd1c2">
+  <img width="247" alt="image" src="https://github.com/lccarelli/xeneize-fe/assets/14808126/5e84ea6a-8543-4a9d-bf7a-0fb769fa7c86">
+
+
+
+
+
+
