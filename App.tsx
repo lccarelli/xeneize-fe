@@ -5,113 +5,103 @@
  * @format
  */
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import React, {useState} from 'react';
+import { Pressable, Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import SignInForm from './src/components/SignInForm.tsx';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+    <SafeAreaView style={styles.container}>
+      <Image source={require('./src/assets/XENEIZE.png')} style={styles.logo} />
+      <View style={styles.titles}>
+        <Text style={styles.welcomeText}>Welcome to</Text>
+        <Text style={styles.clubNameText}>Xeneize Hockey Club App</Text>
+      </View>
+      <View style={styles.btnContainer}>
+        <Pressable
+          style={styles.buttonFacebook}
+          onPress={() => console.log('Login with Facebook')}>
+          <Text style={styles.buttonText}>Login With Facebook</Text>
+        </Pressable>
+        <Pressable
+          style={styles.buttonGoogle}
+          onPress={() => console.log('Login with Google')}>
+          <Text style={styles.buttonText}>Login With Google</Text>
+        </Pressable>
+        <Pressable
+          style={styles.buttonSignIn}
+          onPress={() => setModalVisible(true)}>
+          <Text style={styles.buttonTextSignIn}>SIGN IN</Text>
+        </Pressable>
+      </View>
+      <SignInForm
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    backgroundColor: 'black', // Fondo negro
+    alignItems: 'center', // Centra contenido horizontalmente
   },
-  sectionTitle: {
+  logo: {
+    marginTop: 40,
+    width: 200, // Ancho del logo
+    height: 200, // Altura del logo
+    resizeMode: 'contain', // Asegura que el logo se escale correctamente
+  },
+  titles: {
+    marginVertical: 40,
+  },
+  welcomeText: {
+    marginTop: 40,
     fontSize: 24,
-    fontWeight: '600',
+    color: 'white', // Texto blanco
+    textAlign: 'center', // Alinea el texto al centro
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  clubNameText: {
+    marginTop: 10,
+    fontSize: 30,
+    color: '#F6B5CD', // Texto blanco
+    textAlign: 'center', // Alinea el texto al centro
   },
-  highlight: {
-    fontWeight: '700',
+  btnContainer: {
+    width: '100%',
+    marginVertical: 40,
+  },
+  buttonFacebook: {
+    marginVertical: 10,
+    backgroundColor: '#3b5998', // Color de fondo para botón de Facebook
+    padding: 15,
+    borderRadius: 52,
+  },
+  buttonGoogle: {
+    backgroundColor: '#db4437', // Color de fondo para botón de Google
+    padding: 15,
+    borderRadius: 52,
+    marginVertical: 10,
+  },
+  buttonSignIn: {
+    marginVertical: 10,
+    backgroundColor: '#F6B5CD', // Botón de Sign In blanco
+    padding: 15,
+    borderRadius: 52,
+  },
+  buttonText: {
+    color: 'white', // Texto blanco para los botones de Facebook y Google
+    fontWeight: 'bold',
+    textAlign: 'center', // Alinea el texto al centro
+  },
+  buttonTextSignIn: {
+    color: '#1B1717', // Texto blanco para los botones de Facebook y Google
+    fontWeight: 'bold',
+    textAlign: 'center', // Alinea el texto al centro
   },
 });
 
